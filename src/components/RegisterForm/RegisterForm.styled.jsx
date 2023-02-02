@@ -4,6 +4,7 @@ export const FormWrap = styled.form`
   width: 300px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 30px;
 `;
 
 export const LableForm = styled.label`

@@ -9,7 +9,7 @@ export default function Contacts() {
   const isLoading = useSelector(selectIsLoading);
 
   return (
-    <>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Section title="Phonebook">
         <ContactForm />
         <Section title="Search contacts">
@@ -18,6 +18,6 @@ export default function Contacts() {
       </Section>
       <div>{isLoading && 'Request in progress...'}</div>
       <ContactList />
-    </>
+    </div>
   );
 }

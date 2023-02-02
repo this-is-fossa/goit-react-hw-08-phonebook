@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const HeaderBar = styled.header`
   display: flex;
+  align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 30px;
