@@ -1,19 +1,22 @@
-import { Section } from '../Section/Section';
-import { ContactForm } from '../ContactForm/ContactForm';
-import { ContactList } from '../ContactList/ContactList';
-import { FilterContacts } from '../FilterContacts/FilterContacts';
-import { ContainerApp } from './App.styled';
+import { lazy } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { Layout } from 'components/Layout/Layout';
 
-export function App() {
+const HomePage = lazy(() => import('../../pages/Home'));
+const RegisterPage = lazy(() => import('../../pages/Registered'));
+const LoginPage = lazy(() => import('../../pages/Login'));
+const ContactsPage = lazy(() => import('../../pages/Contacts'));
+
+export const App = () => {
   return (
-    <ContainerApp>
-      <Section title="Phonebook">
-        <ContactForm />
-        <Section title="Search contacts">
-          <FilterContacts />
-        </Section>
-      </Section>
-      <ContactList />
-    </ContainerApp>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
-}
+};

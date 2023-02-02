@@ -5,8 +5,11 @@ import {
   selectError,
   selectFilter,
   selectIsLoading,
-} from 'redux/contactSelectors';
-import { getContactsThunk, deleteContactsThunk } from 'redux/contactsThunk';
+} from 'redux/contacts/selectors';
+import {
+  getContactsThunk,
+  deleteContactsThunk,
+} from 'redux/contacts/operations';
 import {
   ListTitle,
   Loading,
