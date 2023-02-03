@@ -40,14 +40,14 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      // .addCase(register.rejected, (state, action) => {
-      //   state.isLoggedIn = false;
-      //   state.error = action.payload;
-      // })
-      // .addCase(logOut.pending, state => {
-      //   state.error = null;
-      //   state.isLoggedIn = true;
-      // })
+      .addCase(register.rejected, (state, action) => {
+        state.isLoggedIn = false;
+        state.error = action.payload;
+      })
+      .addCase(logOut.pending, state => {
+        state.error = null;
+        state.isLoggedIn = true;
+      })
       .addCase(logOut.fulfilled, (state, action) => {
         state.user = initialState.user;
         state.token = initialState.token;
@@ -55,10 +55,10 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = null;
       })
-      // .addCase(logOut.rejected, (state, action) => {
-      //   state.isLoggedIn = false;
-      //   state.error = action.payload;
-      // })
+      .addCase(logOut.rejected, (state, action) => {
+        state.isLoggedIn = false;
+        state.error = action.payload;
+      })
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
         state.error = null;

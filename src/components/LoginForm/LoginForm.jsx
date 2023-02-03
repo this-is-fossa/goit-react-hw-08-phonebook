@@ -20,11 +20,15 @@ export const LoginForm = () => {
     <FormWrap onSubmit={handleSubmit}>
       <LableForm>
         Email
-        <InputForm type="email" name="email" />
+        <InputForm type="email" name="email" autoComplete="username" />
       </LableForm>
       <LableForm>
         Password
-        <InputForm type="password" name="password" />
+        <InputForm
+          type="password"
+          name="password"
+          autoComplete="current-password"
+        />
       </LableForm>
       <FormBtn type="submit">Log In</FormBtn>
     </FormWrap>

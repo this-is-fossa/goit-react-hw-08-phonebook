@@ -21,7 +21,7 @@ export const RegisterForm = () => {
     <FormWrap onSubmit={handleSubmit}>
       <LableForm>
         Username
-        <InputForm type="text" name="name" />
+        <InputForm type="text" name="name" autoComplete="username" />
       </LableForm>
       <LableForm>
         Email
@@ -29,7 +29,11 @@ export const RegisterForm = () => {
       </LableForm>
       <LableForm>
         Password
-        <InputForm type="password" name="password" />
+        <InputForm
+          type="password"
+          name="password"
+          autoComplete="current-password"
+        />
       </LableForm>
       <FormBtn type="submit">Register</FormBtn>
     </FormWrap>

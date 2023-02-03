@@ -19,6 +19,12 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      if (error.response.status === 400) {
+        alert('This email is in use, try other:(');
+      }
+      if (error.response.status === 500) {
+        alert('Server error, try again:(');
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -32,6 +38,9 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      if (error.response.status === 400) {
+        alert('This email or password is incorrect, try other:(');
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -42,6 +51,9 @@ export const logOut = createAsyncThunk('users/logout', async (_, thunkAPI) => {
     await axios.post('/users/logout');
     clearAuthHeader();
   } catch (error) {
+    if (error.response.status === 500) {
+      alert('Server error, try again:(');
+    }
     return thunkAPI.rejectWithValue(error.message);
   }
 });
