@@ -18,7 +18,7 @@ export const RegisterForm = () => {
     form.reset();
   };
   return (
-    <FormWrap autoComplete="off" onSubmit={handleSubmit}>
+    <FormWrap onSubmit={handleSubmit}>
       <LableForm>
         Username
         <InputForm type="text" name="name" />
