@@ -17,7 +17,7 @@ export const LoginForm = () => {
     form.reset();
   };
   return (
-    <FormWrap autoComplete="on" onSubmit={handleSubmit}>
+    <FormWrap autoComplete="off" onSubmit={handleSubmit}>
       <LableForm>
         Email
         <InputForm type="email" name="email" />

@@ -6,6 +6,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -15,7 +16,7 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(logIn.pending, state => {
-        state.isLoggedIn = true;
+        state.isLoggedIn = false;
         state.error = null;
       })
       .addCase(logIn.fulfilled, (state, action) => {
